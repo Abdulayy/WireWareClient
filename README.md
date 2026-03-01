@@ -39,7 +39,7 @@ Requirements:
 - .NET 8.0 SDK
 - Windows 10/11
 
-Clone the repo and open `WireWareClient.sln` in Visual Studio. Build and run.
+Clone the repo and open `WireWareClient.slnx` in Visual Studio. Build and run.
 
 ---
 
