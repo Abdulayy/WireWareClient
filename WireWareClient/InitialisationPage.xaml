@@ -1,0 +1,56 @@
+<Page
+    x:Class="WireWareClient.InitialisationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <Page.Resources>
+        <Storyboard x:Name="FadeInAura">
+            <DoubleAnimation Storyboard.TargetName="MainStack" Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.4"/>
+        </Storyboard>
+        <Storyboard x:Name="FadeOutAura">
+            <DoubleAnimation Storyboard.TargetName="MainStack" Storyboard.TargetProperty="Opacity"
+                             From="1" To="0" Duration="0:0:0.4"/>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid Loaded="Page_Loaded">
+        <StackPanel x:Name="MainStack" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="45" Opacity="0">
+
+            <Grid Width="290" Height="290">
+                <Ellipse x:Name="GlowLayer" Width="210" Height="210" Opacity="0.4">
+                    <Ellipse.Fill>
+                        <RadialGradientBrush Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                            <GradientStop Color="#BA7543" Offset="0.0" />
+                            <GradientStop Color="#4B0082" Offset="0.8" />
+                            <GradientStop Color="Transparent" Offset="1.0" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                    <Ellipse.RenderTransform>
+                        <ScaleTransform x:Name="GlowScale" CenterX="105" CenterY="105" />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+
+                <Ellipse Width="180" Height="180" Stroke="#BA7543" StrokeThickness="4"
+                         VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="ms-appx:///Assets/Logos/ProtoPic.png" Stretch="UniformToFill" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+
+            <StackPanel Spacing="20">
+                <TextBlock Text="WIREWARE KERNEL" 
+                           FontFamily="ms-appx:///Assets/Fonts/Orbitron-Medium.ttf#Orbitron"
+                           FontSize="54" FontWeight="Black" Foreground="White" 
+                           HorizontalAlignment="Center" CharacterSpacing="160"/>
+
+                <TextBlock x:Name="StatusDots" Text="Scanning Identity Modules" 
+                           FontFamily="ms-appx:///Assets/Fonts/Orbitron-Medium.ttf#Orbitron"
+                           FontSize="16" Foreground="#BA7543" 
+                           HorizontalAlignment="Center" Opacity="0.8"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WireWareClient (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WireWareClient (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

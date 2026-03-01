@@ -1,0 +1,48 @@
+<Page
+    x:Class="WireWareClient.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.Resources>
+            <FontFamily x:Key="OrbitronFont">ms-appx:///Assets/Fonts/Orbitron-Medium.ttf#Orbitron</FontFamily>
+        </Grid.Resources>
+
+        <ScrollViewer MaxWidth="800" HorizontalAlignment="Left">
+            <StackPanel Spacing="30" Margin="20,20,0,40">
+                <TextBlock Text="KERNEL CONFIGURATION" FontFamily="{StaticResource OrbitronFont}" FontSize="32" FontWeight="Black" Foreground="White"/>
+
+                <!-- RAM -->
+                <Border Background="#1B1B1B" Padding="25" CornerRadius="16" BorderBrush="#2C2C2C" BorderThickness="1">
+                    <StackPanel Spacing="15">
+                        <Grid>
+                            <TextBlock Text="RAM ALLOCATION" FontFamily="{StaticResource OrbitronFont}" FontSize="16" Foreground="White"/>
+                            <TextBlock x:Name="RamValueText" Text="4 GB" FontFamily="{StaticResource OrbitronFont}" HorizontalAlignment="Right" Foreground="#BA7543"/>
+                        </Grid>
+                        <Slider x:Name="RamSlider" Minimum="1024" Maximum="16384" StepFrequency="512" 
+                                TickFrequency="1024" Value="4096" Foreground="#BA7543" 
+                                ValueChanged="RamSlider_ValueChanged"/>
+                        <TextBlock Text="Recommended: 4–8 GB for most versions" FontSize="12" Foreground="#888888" Opacity="0.8"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Java Path -->
+                <Border Background="#1B1B1B" Padding="25" CornerRadius="16" BorderBrush="#2C2C2C" BorderThickness="1">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="JAVA RUNTIME PATH" FontFamily="{StaticResource OrbitronFont}" FontSize="16" Foreground="White"/>
+                        <TextBox x:Name="JavaPathInput" PlaceholderText="Uses bundled Java (recommended)" 
+                                 Background="#121212" BorderBrush="#2C2C2C" CornerRadius="8" Padding="12"
+                                 TextChanged="JavaPathInput_TextChanged"/>
+                        <TextBlock Text="Leave empty for default runtime" FontSize="12" Foreground="#888888" Opacity="0.8"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Reset -->
+                <Button Content="RESTORE KERNEL DEFAULTS" Background="#121212" Foreground="#BA7543" 
+                        BorderBrush="#BA7543" BorderThickness="1" CornerRadius="8" Padding="20,10"
+                        Click="ResetSettings_Click" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
